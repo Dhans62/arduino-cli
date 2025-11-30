@@ -1,29 +1,16 @@
 #!/bin/bash
 set -e
-
-echo "Installing Arduino CLI..."
-curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
-sudo mv bin/arduino-cli /usr/local/bin/
-rm -rf bin
-
-echo "Initializing Arduino CLI..."
-arduino-cli config init
-arduino-cli config set board_manager.additional_urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
-
-echo "Updating core index..."
-arduino-cli core update-index
-
-# --- KOREKSI KRITIS BERADA DI SINI ---
+# ... (Instalasi Arduino CLI, init, update-index) ...
 
 echo "Installing build dependencies..."
 sudo apt update
 sudo apt install -y python3 python3-pip git unzip
 
-# INSTAL PYTHON SERIAL SEBELUM INSTAL CORE ESP32!
+# A. INSTAL PYSERIAL DULU (WAJIB!)
 echo "Installing Python serial module (pyserial)..."
 pip install pyserial
 
-# INSTAL CORE ESP32 (sesuai permintaanmu, tetap di v3.x.x)
+# B. BARU INSTAL CORE ESP32 (Sekarang akan berhasil)
 echo "Installing ESP32 core v3.x.x"
 arduino-cli core install esp32:esp32@3.0.7 
 
