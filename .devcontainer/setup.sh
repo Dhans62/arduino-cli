@@ -20,4 +20,12 @@ echo "Installing build dependencies..."
 sudo apt update
 sudo apt install -y python3 python3-pip git unzip
 
+echo "Installing build dependencies..."
+sudo apt update
+sudo apt install -y python3 python3-pip git unzip
+
+# BARIS KRITIS YANG HILANG:
+echo "Installing Python serial module (pyserial)..."
+pip install pyserial
+
 echo "Environment ready."
