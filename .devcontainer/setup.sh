@@ -13,19 +13,18 @@ arduino-cli config set board_manager.additional_urls https://espressif.github.io
 echo "Updating core index..."
 arduino-cli core update-index
 
-echo "Installing ESP32 core v3.x.x"
-arduino-cli core install esp32:esp32@3.0.7
+# --- KOREKSI KRITIS BERADA DI SINI ---
 
 echo "Installing build dependencies..."
 sudo apt update
 sudo apt install -y python3 python3-pip git unzip
 
-echo "Installing build dependencies..."
-sudo apt update
-sudo apt install -y python3 python3-pip git unzip
-
-# BARIS KRITIS YANG HILANG:
+# INSTAL PYTHON SERIAL SEBELUM INSTAL CORE ESP32!
 echo "Installing Python serial module (pyserial)..."
 pip install pyserial
+
+# INSTAL CORE ESP32 (sesuai permintaanmu, tetap di v3.x.x)
+echo "Installing ESP32 core v3.x.x"
+arduino-cli core install esp32:esp32@3.0.7 
 
 echo "Environment ready."
